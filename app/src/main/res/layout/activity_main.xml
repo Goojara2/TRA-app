@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/web_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:background="@color/white"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <LinearLayout
+                android:id="@+id/nav_home"
+                style="@style/NavItemStyle"
+                android:contentDescription="@string/nav_home">
+                <ImageView android:id="@+id/icon_home" style="@style/NavIconStyle" android:src="@drawable/ic_home"/>
+                <TextView android:id="@+id/text_home" style="@style/NavTextStyle" android:text="@string/nav_home"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_products"
+                style="@style/NavItemStyle"
+                android:contentDescription="@string/nav_products">
+                <ImageView android:id="@+id/icon_products" style="@style/NavIconStyle" android:src="@drawable/ic_products"/>
+                <TextView android:id="@+id/text_products" style="@style/NavTextStyle" android:text="@string/nav_products"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_events"
+                style="@style/NavItemStyle"
+                android:contentDescription="@string/nav_events">
+                <ImageView android:id="@+id/icon_events" style="@style/NavIconStyle" android:src="@drawable/ic_events"/>
+                <TextView android:id="@+id/text_events" style="@style/NavTextStyle" android:text="@string/nav_events"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_gallery"
+                style="@style/NavItemStyle"
+                android:contentDescription="@string/nav_gallery">
+                <ImageView android:id="@+id/icon_gallery" style="@style/NavIconStyle" android:src="@drawable/ic_gallery"/>
+                <TextView android:id="@+id/text_gallery" style="@style/NavTextStyle" android:text="@string/nav_gallery"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_book"
+                style="@style/NavItemStyle"
+                android:contentDescription="@string/nav_book">
+                <ImageView android:id="@+id/icon_book" style="@style/NavIconStyle" android:src="@drawable/ic_book"/>
+                <TextView android:id="@+id/text_book" style="@style/NavTextStyle" android:text="@string/nav_book"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/intro_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <ImageView
+            android:id="@+id/intro_logo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/tra_original_logo" />
+
+        <ProgressBar
+            android:id="@+id/intro_progress"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="22dp"
+            android:indeterminate="true" />
+
+        <TextView
+            android:id="@+id/intro_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/loading"
+            android:textColor="@color/tra_muted"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/retry_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/retry"
+            android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>

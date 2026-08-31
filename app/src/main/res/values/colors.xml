@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tra_blue">#1565C0</color>
+    <color name="tra_blue_soft">#E8F1FB</color>
+    <color name="tra_text">#202124</color>
+    <color name="tra_muted">#667085</color>
+    <color name="tra_nav_border">#E6E8EC</color>
+    <color name="white">#FFFFFF</color>
+</resources>

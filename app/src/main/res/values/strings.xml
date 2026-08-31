@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">The Retrenchment Adventures</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_products">Products</string>
+    <string name="nav_events">Events</string>
+    <string name="nav_gallery">Gallery</string>
+    <string name="nav_book">Book</string>
+    <string name="loading">Opening The Retrenchment Adventures…</string>
+    <string name="retry">Retry</string>
+</resources>
