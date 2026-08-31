@@ -1,0 +1,52 @@
+name: Build TRA Android APK + AAB
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Install Android 36
+        run: sdkmanager "platforms;android-36" "build-tools;35.0.0"
+
+      - name: Set up Gradle 8.13
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: "8.13"
+
+      - name: Build debug APK and unsigned release AAB
+        run: gradle :app:assembleDebug :app:bundleRelease --no-daemon --stacktrace
+
+      - name: Prepare build files
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp app/build/outputs/apk/debug/app-debug.apk dist/The-Retrenchment-Adventures-1.0.0-debug.apk
+          cp app/build/outputs/bundle/release/app-release.aab dist/The-Retrenchment-Adventures-1.0.0-unsigned.aab
+          cd dist
+          sha256sum * > SHA256SUMS.txt
+
+      - name: Upload APK and AAB
+        uses: actions/upload-artifact@v7
+        with:
+          name: TRA-Android-v1.0.0
+          path: dist/
+          if-no-files-found: error
+          retention-days: 30
